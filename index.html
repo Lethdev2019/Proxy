@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	 crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://PolyCDN.lethdev2019.repl.co/poly/1.00.060/poly.beta.min.css">
+	<script src="https://unpkg.com/feather-icons">
+
+	</script>
+</head>
+
+<!-- need to create a documentation AND styles for all elements-->
+
+<div style="z-index:1000000; width: calc(100% + 8px);">
+	<nav class="navbar navbar-expand-lg navbar-light navbar-collapse">
+		<div class="d-flex flex-grow-1">
+			<a class="nav-link active " href="/">Home</a>
+			<a class="nav-link active " href="/Schlacht">Game</a>
+			<a class="nav-link" href="/Contact">Contact</a>
+		</div>
+	</nav>
+</div>
+<style>
+	button {
+		width: 100px;
+	}
+</style>
+<div class='header'>
+	<center>
+		<h1 class="enterance" style="color:white;">Proxy</h1>
+		<br>
+			<p class="enterance2" style="color:white;">This service was orginally made Adcharity on repl.it and is now being upkept by the poly development group</p>
+			</center>
+    	</div>
+</div>
+<style>
+  .a{
+  color: white;
+  text-decoration: underline;
+}
+.a:hover,.a:active{
+  text-decoration: none;
+  color: white
+}
+  .ab{
+  color: black;
+  text-decoration: underline;
+}
+.ab:hover,.ab:active{
+  text-decoration: none;
+  color: black;
+}
+</style>
+<div class='content'>
+	<h2>Get started</h2>
+	<p>To get started, just enter a URL and click the button.</p>
+	<br>
+	<center>
+	<input id="input" style="display: inline-block; position: relative; background: rgb(245,245,245); width: calc(100% - 110px); padding: 10px;" placeholder="Url here" type="text" value="http://"></input> <button class="primary" style="position: relative; width: 100px; top: -2px; padding: 13px; border: 3px none; display: inline-block;" onclick="proxy()"><i data-feather="arrow-right"></i></button>
+	</center>
+	<br></br>
+
+<br>
+<center><font size='2'>The servers for this proxy are owned/created by the Poly-OpenDev group. This means that any attacks on this server without permission is prohibited with a zero-tolerance policy and the person responsible will be prosecuted to the fullest extent of the law.</font></center>
+</div>
+<script>
+	function proxy(){
+		url = document.getElementById('input').value
+		window.location = "/proxy?url=" + url;
+	}
+	feather.replace()
+</script>
+</html>
