@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<style>
+		
+	#wait {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		margin-top: calc(-89px / 2);
+		margin-left: calc(-69px / 2);
+		z-index: 100000000;
+	}
+
+	.spinner {
+		-webkit-animation: rotator 1.4s linear infinite;
+		animation: rotator 1.4s linear infinite;
+	}
+
+	@-webkit-keyframes rotator {
+		0% {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100% {
+			-webkit-transform: rotate(270deg);
+			transform: rotate(270deg);
+		}
+	}
+
+	@keyframes rotator {
+		0% {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		100% {
+			-webkit-transform: rotate(270deg);
+			transform: rotate(270deg);
+		}
+	}
+
+	.path {
+		stroke-dasharray: 187;
+		stroke-dashoffset: 0;
+		-webkit-transform-origin: center;
+		transform-origin: center;
+		-webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+		animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes colors {
+		0% {
+			stroke: #6416ff;
+		}
+		25% {
+			stroke: #6416ff;
+		}
+		50% {
+			stroke: #6416ff;
+		}
+		75% {
+			stroke: #6416ff;
+		}
+		100% {
+			stroke: #6416ff;
+		}
+	}
+
+	@keyframes colors {
+		0% {
+			stroke: #6416ff;
+		}
+		25% {
+			stroke: #6416ff;
+		}
+		50% {
+			stroke: #6416ff;
+		}
+		75% {
+			stroke: #6416ff;
+		}
+		100% {
+			stroke: #6416ff;
+		}
+	}
+
+	@-webkit-keyframes dash {
+		0% {
+			stroke-dashoffset: 187;
+		}
+		50% {
+			stroke-dashoffset: 46.75;
+			-webkit-transform: rotate(135deg);
+			transform: rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: 187;
+			-webkit-transform: rotate(450deg);
+			transform: rotate(450deg);
+		}
+	}
+
+	@keyframes dash {
+		0% {
+			stroke-dashoffset: 187;
+		}
+		50% {
+			stroke-dashoffset: 46.75;
+			-webkit-transform: rotate(135deg);
+			transform: rotate(135deg);
+		}
+		100% {
+			stroke-dashoffset: 187;
+			-webkit-transform: rotate(450deg);
+			transform: rotate(450deg);
+		}
+	}
+</style>
+<div id='loader' style="position: absolute; top: 0; left: 0; bottom: 0; right:0; height: 100%; width: 100%; background-color: white;">
+<div id="wait" style="width:69px;height:89px;border:none black;position:absolute;top:50%;left:50%;padding:2px;"><svg class="spinner"
+	 width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+		<circle class="path" fill="none" stroke-width="4" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+	</svg></div>
+</div>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	 crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://PolyCDN.lethdev2019.repl.co/poly/1.00.060/poly.beta.min.css">
+	<script src="https://unpkg.com/feather-icons">
+	
+	</script>
+	<script src="https://fauxlink--adcharity.repl.co/scripts/CDN.js">
+	</script>
+</head>
+
+
+<!-- need to create a documentation AND styles for all elements-->
+
+<div style="position: static; z-index: 1000000; width: calc(100% + 8px);">
+	<nav class="navbar navbar-expand-lg navbar-light navbar-collapse">
+		<div class="d-flex flex-grow-1">
+		<a class="faux-link" href="/"><button class='primary'><i data-feather="arrow-left"></i></button></a> 
+		<a href="" id='fullscreen' target="__blank"><button class='primary'><i data-feather="maximize-2"></i></button></a>
+		</div>
+	</nav>
+</div>
+<body onload='loaded()' style="position: absolute; height: calc(100% - 60px); width: 100%; background-color: white;">
+<div id='main' style="position: absolute; z-index: 10000000; height: 100%; width: 100%; background-color: white;">
+</div>
+</body>
+<script>
+	function proxy(){
+		url = document.getElementById('input').value
+		window.location = "/proxy?url=" + url;
+	}
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	};
+	var urllink= getUrlVars()["url"];
+	var uri = window.location.toString();
+	if (uri.indexOf("?") > 0) {
+		var clean_uri = uri.substring(0, uri.indexOf("?"));
+		window.history.replaceState({}, document.title, clean_uri);
+	}
+	main = document.getElementById('main');
+	fullscreen = document.getElementById('fullscreen');
+	emulator = document.createElement("embed");
+	emulator.src= 'https://Proxy--lethdev2019.repl.co/process?url='+urllink;
+	fullscreen.href= 'https://Proxy--lethdev2019.repl.co/process?url='+urllink;
+	emulator.style = 'width: calc(100% + 8px); height: 100%; border: none; opacity: 0;';
+	main.appendChild(emulator);
+	feather.replace();
+	function loaded(){
+		document.getElementById("loader").style = 'display:none';
+		emulator.style = 'width: calc(100%); height: 100%; border: none; opacity: 1;'
+	}
+	const routes = {
+	'/': {
+		render: '/',
+		partials: ['']
+	},
+	'/proxy': {
+		render: '/proxy'
+	},
+}
+const Router = new Faux_Router(routes,'faux-link')
+
+</script>
+</html>

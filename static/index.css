@@ -1,0 +1,26 @@
+button {
+	width: 100px;
+}
+.a {
+  color: white;
+  text-decoration: underline;
+}
+.a:hover,.a:active {
+  text-decoration: none;
+  color: white
+}
+.ab {
+  color: black;
+  text-decoration: underline;
+}
+.ab:hover,.ab:active {
+  text-decoration: none;
+  color: black;
+}
+center {
+	word-break: break-word;
+	max-width: 50em;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 1em;
+}

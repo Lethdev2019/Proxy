@@ -1,0 +1,47 @@
+<DOCTYPE html>
+	<html>
+	<head>
+		<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://PolyCDN.lethdev2019.repl.co/poly/1.00.060/poly.beta.min.css"/>
+		<script src="https://unpkg.com/feather-icons"></script>
+		<script src="https://fauxlink--adcharity.repl.co/scripts/CDN.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://PolyCDN.lethdev2019.repl.co/poly/1.00.059/poly.beta.min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="/index.css">
+
+	</head>
+	<body>
+<div class='header-error' style="height: 100% !important;">
+			<center>
+			<h1 class="enterance" style="color:white;">Oops</h1>
+			<br>
+			<p class="enterance2" style="color:white;"><a id='messagerd'></a></p>
+			</center>
+			<script>
+				function message(){
+					const messages = ["umm. that webpage wasn't found", 'Nothing to see here...', '...', 'Well, you\'ve come to see an \'oops\'<p>what would we think of that?</p>', 'Just like in snakes and ladders - back to the start...',  'What did you break?<p><strong style="color:white;">Nothing... :o</strong></p>', '...'];
+					const randomIndex = Math.round(Math.random()*(messages.length));
+					const num = randomIndex
+					if(num < 1){
+						console.log('retrying')
+						message()
+					}else{
+						if(num > messages.length){
+							console.log('retrying')
+							message()
+						}else{
+							document.getElementById("messagerd").innerHTML = messages[num];
+						}
+					}
+				}
+				message()
+			</script>
+    	</div>
+	</body>
+	<script>
+      feather.replace()
+    </script>
+</html>
