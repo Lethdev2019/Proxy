@@ -6,6 +6,7 @@ const express = require('express')
 const path = require('path')
 const url = require('url')
 const Proxy = require('unblocker')
+var port = process.env.PORT || 8080
 // var http = require('http');
 // var url = require('url');
 // var request = require('request');
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 
   next();
 });
+
 // Templating Configuration
 app.engine('html', require('ejs').renderFile)
 app.set('views', path.join(__dirname, '/templates'))
@@ -58,7 +60,9 @@ app.use(function(req, res, next) {
 });
 
 
-app.listen(8080)
+app.listen(port, function(){
+	console.log("app running on port "+port+"!")
+})
 ''
 
 // var server = http.createServer(function(req, res) {  
