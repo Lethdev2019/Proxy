@@ -25,7 +25,7 @@ app.engine('html', require('ejs').renderFile)
 app.set('views', path.join(__dirname, '/templates'))
 app.set('view engine', 'html')
 
-app.use(new Proxy({prefix: '//proxy/'}));
+app.use(new Proxy({prefix: '/proxy/'}));
 // Static
 app.use(express.static('static'))
 
