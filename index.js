@@ -1,19 +1,29 @@
 // Dependencies
+
+
+
 const express = require('express')
 const path = require('path')
 const url = require('url')
-const proxy = require('unblocker')
+const Proxy = require('unblocker')
 // var http = require('http');
 // var url = require('url');
 // var request = require('request');
 
 const app = express()
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] === 'http') {
+    res.redirect(301, `https://${req.headers.host}/${req.url}`)
+  }
 
+  next();
+});
 // Templating Configuration
 app.engine('html', require('ejs').renderFile)
 app.set('views', path.join(__dirname, '/templates'))
 app.set('view engine', 'html')
 
+app.use(new Proxy({prefix: '/proxy/'}));
 // Static
 app.use(express.static('static'))
 
@@ -24,6 +34,13 @@ app.use(express.urlencoded({extended: true}))
 // Routes
 app.get('/', (req, res) => {
 	res.render('index')
+	// res.sendFile(path.join(__dirname, 'pages/index.html'))
+    // let now = new Date();
+//   console.log("Page Request[/]: "+now);
+})
+
+app.get('/session', (req, res) => {
+	res.render('session')
 	// res.sendFile(path.join(__dirname, 'pages/index.html'))
     // let now = new Date();
 //   console.log("Page Request[/]: "+now);
@@ -41,7 +58,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.listen(8080)
+app.listen(3000)
 ''
 
 // var server = http.createServer(function(req, res) {  

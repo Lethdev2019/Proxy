@@ -54,7 +54,8 @@
 		});
 		function proxy(){
 			url = document.getElementById('input').value
-			window.location = "/proxy?url=" + url;
+			// window.location = "/session?url=" + url;
+			window.location = "/proxy/" + url;
 		}
 		feather.replace()
 	</script>
